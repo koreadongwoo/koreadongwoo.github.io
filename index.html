@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jane Doe - Frontend Developer</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">JD.</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#cv">CV</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="hamburger" id="hamburger-menu" aria-label="Open menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+
+    <main>
+        <section id="home" class="home">
+            <div class="home-content">
+                <h1>Hi, I'm Jane Doe</h1>
+                <h3>Frontend Developer</h3>
+                <p>I build beautiful and responsive web applications with a focus on user experience. Passionate about clean code and modern web technologies.</p>
+                <div class="btn-box">
+                    <a href="#contact">Hire Me</a>
+                    <a href="#projects">My Work</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About <span>Me</span></h2>
+            <div class="about-content">
+                <p>Hello! I'm a creative developer based in [Your City], with a passion for building intuitive and dynamic user interfaces. I have a strong foundation in HTML, CSS, and JavaScript, and I'm proficient with modern frameworks like React and Vue. I'm a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems.</p>
+                <h3>My Skills</h3>
+                <div class="skills">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                    <span>TypeScript</span>
+                    <span>React</span>
+                    <span>Vue.js</span>
+                    <span>Node.js</span>
+                    <span>Figma</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Latest <span>Projects</span></h2>
+            <div class="project-container">
+                <div class="project-card">
+                    <img src="https://placehold.co/600x400/0f172a/0ef/png?text=Project+1" alt="Project 1 Screenshot">
+                    <div class="project-info">
+                        <h4>Project Title One</h4>
+                        <p>A short description of the project, its purpose, and the technologies used.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://placehold.co/600x400/0f172a/0ef/png?text=Project+2" alt="Project 2 Screenshot">
+                    <div class="project-info">
+                        <h4>Project Title Two</h4>
+                        <p>A short description of the project, its purpose, and the technologies used.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://placehold.co/600x400/0f172a/0ef/png?text=Project+3" alt="Project 3 Screenshot">
+                    <div class="project-info">
+                        <h4>Project Title Three</h4>
+                        <p>A short description of the project, its purpose, and the technologies used.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cv" class="cv">
+            <h2>My <span>CV</span></h2>
+            <div class="cv-content">
+                <p>Feel free to download my CV for more details about my experience and skills.</p>
+                <a href="#" class="btn" download>Download CV</a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact <span>Me</span></h2>
+            <form action="#">
+                <div class="input-box">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <textarea cols="30" rows="10" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Jane Doe | All Rights Reserved.</p>
+    </footer>
+    
+    <script type="module" src="index.tsx"></script>
+    <script type="importmap">
+    {
+      "imports": {}
+    }
+    </script>
+</body>
+</html>
