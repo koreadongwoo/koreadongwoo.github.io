@@ -4,10 +4,429 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jane Doe - Frontend Developer</title>
-    <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-color: #1f242d;
+            --second-bg-color: #323946;
+            --text-color: #ffffff;
+            --main-color: #0ef;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            transition: background-color 0.3s;
+        }
+
+        .header.sticky {
+            border-bottom: .1rem solid var(--second-bg-color);
+            background: rgba(31, 36, 45, 0.95);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+            cursor: default;
+            text-decoration: none;
+        }
+
+        .navbar a {
+            font-size: 1.7rem;
+            color: var(--text-color);
+            margin-left: 4rem;
+            transition: .3s;
+            text-decoration: none;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--main-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: var(--text-color);
+        }
+
+
+        /* Home Section */
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-content h3 {
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+
+        .home-content h1 {
+            font-size: 5.6rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .home-content p {
+            font-size: 1.6rem;
+            margin: 2rem 0 4rem;
+            max-width: 600px;
+        }
+
+        .btn-box a {
+            display: inline-block;
+            padding: 1.2rem 2.8rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 1rem var(--main-color);
+            font-size: 1.6rem;
+            color: var(--second-bg-color);
+            letter-spacing: .1rem;
+            font-weight: 600;
+            transition: .5s ease;
+            text-decoration: none;
+            margin: 0 1rem 1rem 0;
+        }
+
+        .btn-box a:hover {
+            box-shadow: none;
+        }
+
+        /* General Headings */
+        h2 {
+            font-size: 5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        h2 span {
+            color: var(--main-color);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--second-bg-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.6rem;
+            line-height: 1.8;
+        }
+
+        .about-content h3 {
+            font-size: 2.6rem;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .skills span {
+            background: var(--bg-color);
+            color: var(--main-color);
+            padding: 0.8rem 1.6rem;
+            border-radius: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--bg-color);
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--second-bg-color);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-info h4 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-info p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .project-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            color: var(--main-color);
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* CV Section */
+        .cv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .cv-content p {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            max-width: 60rem;
+        }
+
+        .cv .btn {
+            display: inline-block;
+            padding: 1.2rem 2.8rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 1rem var(--main-color);
+            font-size: 1.6rem;
+            color: var(--second-bg-color);
+            letter-spacing: .1rem;
+            font-weight: 600;
+            transition: .5s ease;
+            text-decoration: none;
+            border: none;
+        }
+
+        .cv .btn:hover {
+            box-shadow: none;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--second-bg-color);
+        }
+
+        .contact form {
+            max-width: 70rem;
+            margin: 1rem auto;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact form .input-box {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .contact form .input-box input,
+        .contact form textarea {
+            width: 100%;
+            padding: 1.5rem;
+            font-size: 1.6rem;
+            color: var(--text-color);
+            background: var(--bg-color);
+            border-radius: .8rem;
+            margin: .7rem 0;
+            border: .2rem solid transparent;
+            transition: border-color 0.3s;
+        }
+        .contact form .input-box input:focus,
+        .contact form textarea:focus {
+            outline: none;
+            border-color: var(--main-color);
+        }
+
+
+        .contact form .input-box input {
+            width: 49%;
+        }
+
+        .contact form textarea {
+            resize: none;
+        }
+
+        .contact form .btn {
+            margin-top: 2rem;
+            cursor: pointer;
+            display: inline-block;
+            padding: 1.2rem 2.8rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 1rem var(--main-color);
+            font-size: 1.6rem;
+            color: var(--second-bg-color);
+            letter-spacing: .1rem;
+            font-weight: 600;
+            transition: .5s ease;
+            text-decoration: none;
+            border: none;
+        }
+
+        .contact form .btn:hover {
+            box-shadow: none;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 9%;
+            background: var(--bg-color);
+            text-align: center;
+            border-top: 1px solid var(--second-bg-color);
+        }
+
+        .footer p {
+            font-size: 1.4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            html {
+                font-size: 55%;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .header {
+                padding: 2rem 3%;
+            }
+
+            section {
+                padding: 10rem 3% 2rem;
+            }
+
+            .footer {
+                padding: 2rem 3%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: -100%;
+                width: 100%;
+                padding: 1rem 3%;
+                background: var(--bg-color);
+                border-top: .1rem solid rgba(0, 0, 0, .2);
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+                transition: left 0.3s ease;
+            }
+            
+            .navbar.active {
+                left: 0;
+            }
+
+            .navbar a {
+                display: block;
+                font-size: 2rem;
+                margin: 3rem 0;
+                text-align: center;
+            }
+
+            .home {
+                text-align: center;
+            }
+            
+            .home-content h1 {
+                font-size: 5rem;
+            }
+
+            .contact form .input-box input {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -122,11 +541,58 @@
         <p>&copy; 2024 Jane Doe | All Rights Reserved.</p>
     </footer>
     
-    <script type="module" src="index.tsx"></script>
-    <script type="importmap">
-    {
-      "imports": {}
-    }
+    <script>
+        // Header scroll behavior
+        const header = document.querySelector('.header');
+        if (header) {
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('sticky', window.scrollY > 100);
+            });
+        }
+
+        // Mobile navigation toggle
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navbar = document.querySelector('.navbar');
+
+        if (hamburgerMenu && navbar) {
+            hamburgerMenu.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                hamburgerMenu.classList.toggle('active');
+            });
+        }
+
+        // Active navigation link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.header .navbar a');
+
+        if (sections.length > 0 && navLinks.length > 0) {
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(sec => {
+                    const sectionTop = sec.offsetTop;
+                    if (scrollY >= sectionTop - 150) {
+                        current = sec.getAttribute('id') || '';
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Close mobile nav when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbar.classList.contains('active')) {
+                    navbar.classList.remove('active');
+                    hamburgerMenu.classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
